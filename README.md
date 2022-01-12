@@ -1,12 +1,12 @@
-# Phaser3 + Create React App template - [check out preview](https://create-react-phaser3-app.netlify.app/)
-
+# Phaser 3 + Create React App template
+![image](https://user-images.githubusercontent.com/11501902/149048401-f60c6926-e731-45bc-a89a-0b325bef763b.png)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## What's included?
+## What's included? - [Check the preview](https://create-react-phaser3-app.netlify.app/)
 
-- [Phaser3](https://github.com/photonstorm/phaser) - overlaid canvas with the config in `src/PhaserGame.ts` and a scene in `src/scenes/`
+- [Phaser 3](https://github.com/photonstorm/phaser) - overlaid canvas with the config in `src/PhaserGame.ts` and a scene in `src/scenes/`
 - [Create React App](https://github.com/facebook/create-react-app) - React, TSX, ES6, TypeScript, no need to install bundler, ...etc
-- An example button in `src/App.tsx` showing how to communicate with Phaser3 within a React component
+- An example button in `src/App.tsx` showing how to communicate with Phaser within a React component
 - That's it!
 ## Getting started
 
