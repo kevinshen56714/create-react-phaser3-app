@@ -1,14 +1,13 @@
-# Phaser3 + Create React App template
+# Phaser3 + Create React App template - [check out preview](https://create-react-phaser3-app.netlify.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## What's included?
 
-- Everything from [create-react-app](https://github.com/facebook/create-react-app) (React, TSX, ES6, TypeScript, no need to install webpack or Babel, ...etc)
-- Overlaid Phaser3 canvas with the config in `src/PhaserGame.ts` and an example scene in `src/scenes/HelloWorldScene.ts`
-- An example button in `src/App.tsx` showing how to communicate with Phaser3 within a React component file
+- [Phaser3](https://github.com/photonstorm/phaser) - overlaid canvas with the config in `src/PhaserGame.ts` and a scene in `src/scenes/`
+- [Create React App](https://github.com/facebook/create-react-app) - React, TSX, ES6, TypeScript, no need to install bundler, ...etc
+- An example button in `src/App.tsx` showing how to communicate with Phaser3 within a React component
 - That's it!
-
 ## Getting started
 
 Clone the project and in the project directory, you can run:
