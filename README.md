@@ -1,5 +1,5 @@
 # Phaser 3 + Create React App template
-![image](https://user-images.githubusercontent.com/11501902/149048401-f60c6926-e731-45bc-a89a-0b325bef763b.png)
+![image](https://user-images.githubusercontent.com/11501902/149049053-f46a9d1e-7075-4258-9102-cdbcbe7198ba.png)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## What's included? - [Check the preview](https://create-react-phaser3-app.netlify.app/)
