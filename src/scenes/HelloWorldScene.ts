@@ -1,36 +1,53 @@
-import Phaser from 'phaser'
+import Phaser, { Tilemaps } from 'phaser'
+import easystarjs, { js } from 'easystarjs';
 
 export default class HelloWorldScene extends Phaser.Scene {
+  map!: Tilemaps.Tilemap;
+  layer!: Tilemaps.TilemapLayer;
+  player!: Phaser.GameObjects.Image;
+  easystar!: js;
   constructor() {
     super('helloworld')
   }
 
   preload() {
-    this.load.setBaseURL('https://labs.phaser.io')
-
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png')
-    this.load.image('red', 'assets/particles/red.png')
+    this.load.image('tiles', 'assets/drawtiles-spaced.png');
+    this.load.tilemapCSV('map', 'assets/grid.csv');
+    this.load.image('car', 'assets/car90.png');
   }
 
   create() {
-    this.createEmitter()
+    this.map = this.make.tilemap({ key: 'map', tileWidth: 32, tileHeight: 32 });
+    
+    var tileset = this.map.addTilesetImage('tiles', 'tiles', 32, 32, 1, 2);
+    this.layer = this.map.createLayer(0, tileset, 0, 0);
+    console.log(this.layer);
+    this.player = this.add.image(32+16, 32+16, 'car');
+
+    this.easystar = new easystarjs.js();
   }
 
-  createEmitter() {
-    const particles = this.add.particles('red')
+  update () {
+    var worldPoint: Phaser.Math.Vector2 = this.input.activePointer.positionToCamera(this.cameras.main) as Phaser.Math.Vector2;
 
-    const emitter = particles.createEmitter({
-      speed: 100,
-      scale: { start: 1, end: 0 },
-      blendMode: 'ADD',
-    })
+    // Force snapping to base tile size
+    var pointerTileX = this.map.worldToTileX(worldPoint.x, true, this.cameras.main, this.layer);
+    var pointerTileY = this.map.worldToTileY(worldPoint.y, true, this.cameras.main, this.layer);
 
-    const logo = this.physics.add.image(400, 100, 'logo')
-
-    logo.setVelocity(100, 200)
-    logo.setBounce(1, 1)
-    logo.setCollideWorldBounds(true)
-
-    emitter.startFollow(logo)
+    if (this.input.manager.activePointer.isDown)
+    {
+        var tile = this.map.getTileAtWorldXY(worldPoint.x, worldPoint.y);
+        console.log(tile);
+        if (tile.index === 0)
+        {
+          var tween = this.tweens.add({
+            targets: this.player,
+            x: this.map.tileToWorldX(pointerTileX) + 16,
+            y: this.map.tileToWorldX(pointerTileY) + 16,
+            ease: 'Linear',
+        });
+        }
+    }
+    // console.log(pointerTileX, pointerTileY);
   }
 }
